@@ -106,6 +106,7 @@ class CountryPickerCupertino extends StatefulWidget {
 class _CupertinoCountryPickerState extends State<CountryPickerCupertino> {
   List<Country> _countries;
   FixedExtentScrollController _scrollController;
+  List<Image> images;
 
   @override
   void initState() {
@@ -133,6 +134,17 @@ class _CupertinoCountryPickerState extends State<CountryPickerCupertino> {
       _scrollController = FixedExtentScrollController(
           initialItem: _countries.indexOf(countyInList));
     }
+    images = _countries
+        .map((e) => CountryPickerUtils.getDefaultFlagImage(e))
+        .toList();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    images.forEach((element) async {
+      await precacheImage(element.image, context);
+    });
   }
 
   @override
