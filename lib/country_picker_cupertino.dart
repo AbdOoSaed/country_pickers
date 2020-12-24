@@ -135,7 +135,7 @@ class _CupertinoCountryPickerState extends State<CountryPickerCupertino> {
           initialItem: _countries.indexOf(countyInList));
     }
     images = _countries
-        .map((e) => CountryPickerUtils.getDefaultFlagImage(e))
+        .map((e) => CountryPickerUtils.getDefaultFlagImage(e) as Image)
         .toList();
   }
 
