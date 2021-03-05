@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class MyAlertDialog<T> extends StatelessWidget {
   /// Creates an alert dialog.
@@ -136,7 +136,7 @@ class MyAlertDialog<T> extends StatelessWidget {
 
     if (actions != null) {
       if (isDividerEnabled) children.add(divider);
-      children.add(new ButtonTheme.bar(
+      children.add(new ButtonBarTheme(
         child: new ButtonBar(
           children: actions,
         ),
